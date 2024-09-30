@@ -1,0 +1,41 @@
+//Remove Strings and special characters from an array.
+const array1 = [1, "2", 3, "$", "%", 3, 4, 7, "baasa", 1, "#"];
+
+// Create a new array `array2` by filtering elements from `array1`
+const array2 = array1
+  // Filter elements that are of type 'number'
+  .filter(item => typeof item === 'number')
+  // Filter out duplicate values by ensuring the index of the current element
+  // is the same as its first occurrence
+  .filter((item, index, arr) => arr.indexOf(item) === index);
+
+// Log the resulting array `array2` to the console
+console.log(array2); // Output: [1, 2, 3, 4, 7]
+/*******************************************************************************************************************/
+const array1 = [1, "2", 3, "$", "%", 3, 4, 7, "baasa", 1, "#"];
+function solution(arr){
+	const res = [...new Set(arr.filter((items)=>{
+  	return typeof items === "number";
+  }))]
+  
+  return res;
+}
+/* filter(item => typeof item === "number"): This filters out only the numeric elements from the array.
+new Set(): The Set object is used to ensure that only unique numbers are kept, as sets automatically discard duplicate values.
+[...] (Spread operator): This converts the Set back into an array.*/
+const result = solution(array1);
+console.log(result);
+/*******************************************************************************************************************/
+
+/*******************************************************************************************************************/
+
+/*******************************************************************************************************************/
+
+/*******************************************************************************************************************/
+
+/*******************************************************************************************************************/
+
+/*******************************************************************************************************************/
+
+/*******************************************************************************************************************/
+
