@@ -1,0 +1,71 @@
+//-> The common way of writing the function with keyword and naming covention is called as function statement. 
+function funcStatement(){
+  console.log("Function Statement");
+}
+
+funcStatement();
+
+/**************************/
+
+/*-> Here we create a function and assign that to the variable then it's called as function expression.
+  -> In this we won't get the hoisting because it's assigned to variable and it will undefined till it call function
+  so it will throw error when we call before.
+*/
+const funcExpression = function statement(){
+  console.log("Function Expression");
+}
+
+funcExpression();
+
+/**************************/
+
+//-> same as function statement which we use the function keyword for declaring that it is a function.
+function funcDeclaration(){
+  console.log("Funtion Declaration");
+}
+funcDeclaration();
+
+
+/**************************/
+/*-> Anonymous Function is a function without a name and if we try to print it will throw error and same if we assign to the variable it will treated as function Expression */
+// function (){
+//   console.log("hello"); //SyntaxError: Function statements require a function name
+// }
+
+const anonymousFunc = function (){
+  console.log("Anonymous Function");
+}
+
+anonymousFunc();
+
+/**************************/
+/*-> It is same as function expression but as we don't assign any name in anonymous function, but here we assign the name to the function */
+const NamedFunc = function namedFunc(){
+  console.log("Named Function Expression");
+}
+
+NamedFunc();
+/**************************/
+
+/*->First class function are those function which can be passed as an argument or can be returned from another function */
+const firstClassFunc = function(func){
+  console.log("First Class Function");
+  func();
+}
+
+firstClassFunc(function(){
+  console.log("Inside First Class Function");
+});
+
+
+/**************************/
+
+/*-> Arrow Function is a function with an arrow function in it. It is a short hand for function expression. */
+
+const arrowFunc = () =>{
+  console.log("Arrow Function");
+}
+arrowFunc();
+
+
+/**************************/
