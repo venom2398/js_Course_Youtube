@@ -2,31 +2,58 @@ Spread operator: Expands arrays/objects or splits elements into separate values.
 Rest operator: Gathers remaining arguments/elements into an array or object.
 
 let store = { 
-  bread: 20,
-  butter: 100,
-  cheese: 200,
-  jam: 70,
-  pasta: 150
+  0: {
+    product: "bread",
+    price: 20
+  },
+  1: {
+    product: "butter",
+    price: 100
+  },
+  2: {
+    product: "cheese",
+    price: 200
+  },
+  3: {
+    product: "jam",
+    price: 70
+  },
+  4: {
+    product: "sauce",
+    price: 150
+  },
 };
 
 let cart = [];
 
-// Function to update the cart (Rest operator is used here to accept multiple new items)
-function updateCart(...newItems) {
-  cart = [...cart, ...newItems];  // Spread operator is used to add new items to cart
-  cart = [...new Set(cart)];      // Remove duplicates
-  console.log('Updated Cart:', cart);
+// Function to add products to the cart and calculate total price
+function myCart(...newItems) {  // Rest operator to gather all arguments into an array
+  let totalAmount = 0;
+
+  // Iterate over each item passed to the function
+  newItems.forEach(item => {
+    // Check if the product exists in the store using Spread Operator to get store values
+    const foundProduct = [...Object.values(store)].find(storeItem => storeItem.product === item);
+
+    if (foundProduct) {
+      // If the product is found, add it to the cart (if not already added)
+      if (!cart.includes(foundProduct.product)) {
+        cart = [...cart, foundProduct.product];  // Spread operator to add new product
+      }
+      // Add the price to the total amount
+      totalAmount += foundProduct.price;
+    } else {
+      console.log(`${item} is not available in the store.`);
+    }
+  });
+
+  // Display the updated cart and the total amount
+  console.log("Updated Cart:", cart.join(', '));
+  console.log("Total Amount:", totalAmount);
 }
 
-// Function to calculate the total price of items in the cart (Rest operator is used here)
-function calculateTotal(...items) {  // Rest operator to gather all cart items
-  return items.reduce((total, item) => total + store[item], 0);
-}
+// Calling the function with products 'bread' and 'jam'
+myCart('bread', 'jam');
 
-// Adding items to the cart
-updateCart('bread', 'cheese', 'pasta');  // Adds 'bread', 'cheese', and 'pasta'
-updateCart('butter', 'jam');             // Adds 'butter' and 'jam'
-
-// Calculating the total price of the items in the cart
-let total = calculateTotal(...cart);     // Spread operator to pass cart items individually
-console.log('Total Price:', total);      // Output: Total price of all items in the cart
+// Calling again with an unavailable product
+myCart('cheese', 'soda');
