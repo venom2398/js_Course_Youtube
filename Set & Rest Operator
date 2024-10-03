@@ -1,0 +1,32 @@
+Spread operator: Expands arrays/objects or splits elements into separate values.
+Rest operator: Gathers remaining arguments/elements into an array or object.
+
+let store = { 
+  bread: 20,
+  butter: 100,
+  cheese: 200,
+  jam: 70,
+  pasta: 150
+};
+
+let cart = [];
+
+// Function to update the cart (Rest operator is used here to accept multiple new items)
+function updateCart(...newItems) {
+  cart = [...cart, ...newItems];  // Spread operator is used to add new items to cart
+  cart = [...new Set(cart)];      // Remove duplicates
+  console.log('Updated Cart:', cart);
+}
+
+// Function to calculate the total price of items in the cart (Rest operator is used here)
+function calculateTotal(...items) {  // Rest operator to gather all cart items
+  return items.reduce((total, item) => total + store[item], 0);
+}
+
+// Adding items to the cart
+updateCart('bread', 'cheese', 'pasta');  // Adds 'bread', 'cheese', and 'pasta'
+updateCart('butter', 'jam');             // Adds 'butter' and 'jam'
+
+// Calculating the total price of the items in the cart
+let total = calculateTotal(...cart);     // Spread operator to pass cart items individually
+console.log('Total Price:', total);      // Output: Total price of all items in the cart
