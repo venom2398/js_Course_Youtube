@@ -42,7 +42,9 @@ function myCart(...newItems) {  // Rest operator to gather all arguments into an
       }
       // Add the price to the total amount
       totalAmount += foundProduct.price;
-    } else {
+    } else if(!item.length){
+    	console.log("No items in the cart!");
+    }else {
       console.log(`${item} is not available in the store.`);
     }
   });
@@ -55,5 +57,9 @@ function myCart(...newItems) {  // Rest operator to gather all arguments into an
 // Calling the function with products 'bread' and 'jam'
 myCart('bread', 'jam');
 
+//calling with empty cart;
+myCart('');
+
 // Calling again with an unavailable product
 myCart('cheese', 'soda');
+
