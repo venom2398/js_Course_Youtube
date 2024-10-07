@@ -1,3 +1,26 @@
+const obj1 = {
+  name: "basava",
+  age: 24,
+  func: function emp(state, country) {
+    return `Name is ${this.name}, age is ${this.age}, state is ${state}, country is ${country}.`
+  },
+}
+
+const obj2 = {
+  name: "kiran",
+  age: 26,
+}
+
+// call -> here we pass the parameter individually
+console.log(obj1.func.call(obj2, "karnataka", "India"))
+
+// apply ->here we pass the parameter's in array
+console.log(obj1.func.apply(obj2, ["karnataka", "India"]))
+
+//bind -> here it will create the new function for obj2 same as obj1 and then we are storing that in to result and we can call whenever it's needed.
+const result = obj1.func.bind(obj2, "karnataka", "India")
+console.log(result())
+/*********************/
 The `call`, `apply`, and `bind` methods in JavaScript are used to control the context (`this` value) in which a function is executed. Here's a breakdown of each method with real-time examples:
 
 `call` Method
