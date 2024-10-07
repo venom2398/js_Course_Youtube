@@ -1,0 +1,39 @@
+let data = {
+	a:10,
+}
+
+//here in below we have freezed the object
+Object.freeze(data);
+
+//now we are trying reassign the a and adding new c properties
+data.a = 20;
+data.c = 32;
+
+/* as the data is freezed so it will not change and
+display the same */
+console.log(data);
+o/p:-  {
+         a: 10
+       } 
+*/
+
+/*******************/
+
+let data = {
+	a:10,
+}
+
+//here in below we have freezed the object
+Object.seal(data);
+
+//now we are trying reassign the a and adding new c properties
+data.a = 20;
+data.c = 32;
+
+/* as the data is seal so we can change existing but can't add new */
+console.log(data);
+/* 
+o/p:-  {
+         a: 20
+       } 
+*/
