@@ -1,0 +1,33 @@
+const obj1 = {
+	name:"basava",
+	country:"India"
+}
+console.log(obj1);
+
+let obj2 = new Object();
+obj2.name = "abhi";
+obj2.country = "Aus";
+console.log(obj2);
+
+//-> this inherit the properties of obj3 to new obj which we are creating 
+let obj3 = {
+	name: "avi",
+  age: "England"
+} 
+
+let obj = Object.create(obj3);
+console.log(obj)
+
+//-> this inherit the properties of mutliple objects to new obj which we are creating
+
+const obja = {
+	name:"kartik",
+	country:"cannada"
+}
+const objb = {
+	state:"Karnataka",
+	age:24
+}
+
+const objc = Object.assign({},obja,objb);
+console.log(objc);
