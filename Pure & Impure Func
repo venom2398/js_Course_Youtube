@@ -1,0 +1,23 @@
+A pure function is a function that:
+	• Always returns the same output for the same set of input parameters.
+	• Has no side effects, meaning it does not modify any external state or variables.
+
+function pureFunc(a,b){
+	return a+b;
+}
+
+console.log(pureFunc(3,3));
+
+/* ----- */
+
+An impure function is a function that:
+	• May produce different outputs even if the same inputs are provided.
+	• Has side effects, meaning it modifies some state or interacts with the outside world (e.g., changing variables, making HTTP requests, writing to a database).
+
+let a = 5;
+
+function impureFunc(b){
+	return a + b;
+}
+
+console.log(impureFunc(5));
