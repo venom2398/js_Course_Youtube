@@ -1,0 +1,47 @@
+In JavaScript, understanding the concepts of "pass by value" and "pass by reference" can be illustrated using two different types of data: primitives and objects. Here's a real-life example for both:
+
+1.Pass by Value:
+When you pass a primitive data type (like a number, string, boolean, etc.) to a function, JavaScript creates a copy of the variable's value. This means changes made to the parameter inside the function do not affect the original value.
+
+Example:
+
+let age = 30;
+
+function updateAge(value) {
+    value = 40;
+    console.log(`Inside function: ${value}`); // Inside function: 40
+}
+
+updateAge(age);
+console.log(`Outside function: ${age}`); // Outside function: 30
+
+
+Explanation
+- The variable `age` is passed by value to the function `updateAge`.
+- A copy of `age` is made and assigned to the parameter `value`.
+- Changing `value` inside the function does not affect the original `age` variable outside the function.
+
+2.Pass by Reference:
+When you pass an object (like an array or an object) to a function, JavaScript passes a reference to the same object. This means changes made to the object inside the function will affect the original object.
+
+Example:
+
+let user = { name: 'John' };
+
+function updateUser(person) {
+    person.name = 'Jane';
+    console.log(`Inside function: ${person.name}`); // Inside function: Jane
+}
+
+updateUser(user);
+console.log(`Outside function: ${user.name}`); // Outside function: Jane
+
+
+Explanation:
+- The variable `user` is an object, so it is passed by reference to the function `updateUser`.
+- Inside the function, `person` refers to the same object in memory as `user`.
+- Modifying `person.name` inside the function directly affects the `user` object outside the function.
+
+Summary:
+-Pass by Value: Creates a copy of the value, so changes inside the function do not affect the original variable (used with primitives like numbers, strings, etc.).
+-Pass by Reference: Passes a reference to the same object, so changes inside the function affect the original object (used with non-primitive data types like objects, arrays, etc.).
