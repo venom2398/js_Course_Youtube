@@ -1,0 +1,28 @@
+find: -
+
+const arrObj = [
+	{name:"basva", age:23},
+  {name:"kiran", age:28},
+  {name:"ulla", age:29},
+]
+
+const res = arrObj.find((items)=>{
+	return items.age ==29
+})
+
+console.log(res.name);
+
+findIndex: -
+
+const arrObj = [
+	{name:"basva", age:23},
+  {name:"kiran", age:28},
+  {name:"ulla", age:29},
+]
+
+const res = arrObj.findIndex((items)=>{
+	return items.age ==29
+})
+
+console.log(res);
+
