@@ -1,0 +1,13 @@
+const obj = {
+	name:"basava",
+  age:24,
+}
+
+// -> keys will be return
+console.log(Object.keys(obj));//["name", "age"]
+
+// -> values will be return
+console.log(Object.values(obj));//["basava", 24]
+
+// -> this will return the object properties in array.
+console.log(Object.entries(obj));// [["name", "basava"], ["age", 24]]
