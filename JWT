@@ -1,0 +1,27 @@
+A JSON Web Token (JWT) is a way to securely transmit information between two parties as a JSON object. It is commonly used for authentication and authorization in web applications. 
+
+How JWT Works:
+1.Structure: A JWT consists of three parts:
+   -Header: Contains information about the type of token and the algorithm used to generate it (usually something like `HS256`).
+   -Payload: Contains the data you want to share (like user information or permissions). This data is also called "claims."
+   -Signature: This is created by combining the header, payload, and a secret key. The signature helps verify that the token hasn't been altered.
+
+2.Process:
+   - When a user logs in, the server generates a JWT using the user's details and a secret key.
+   - This token is sent back to the user's browser and stored (usually in local storage or a cookie).
+   - For every request the user makes to access protected resources, the token is sent along with the request.
+   - The server then verifies the token's signature using the secret key to check if it's valid.
+
+Why JWT is Used:
+-Secure: Since the token is signed, you can be sure that the data hasn't been tampered with.
+-Stateless: The server doesn't need to store tokens, which makes it scalable.
+-Portable: JWTs are self-contained, meaning they carry all the information needed to understand and verify the token without additional database lookups.
+
+Example Use Case:
+- A user logs in to your website.
+- Your server creates a JWT with the user's information.
+- The server sends the token to the user's browser.
+- The user’s browser stores the token and sends it with every request to access protected pages.
+- The server checks the token to verify the user’s identity without needing to log in again.
+
+JWTs are widely used because they are secure, efficient, and easy to implement.
