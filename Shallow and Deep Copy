@@ -1,0 +1,55 @@
+const obj1 = {
+  name: 'obj1',
+  age: 18,
+  addrers: {
+    city: '北京',
+    country: '中国'
+  }
+}
+
+
+// using the spread operator
+const obj2 = {...obj1};
+obj2.age = 15
+
+/*problem in shallow copy
+/-> here we change the city which is deeply nested in obj1
+/-> when we change the obj2, it also change the obj1 and obj3 because the nested object will point to the same memory of obj1.
+*/
+
+obj2.addrers.city = 'Istanbul';
+
+// using the Object.assign
+const obj3 = Object.assign({},obj1);
+obj3.age = 12
+
+console.log(obj1,"obj1"); //original object
+console.log(obj2,"obj2"); //spread Operator
+console.log(obj3,"obj3"); //Object.assign
+
+/************************/
+
+const obj1 = {
+  name: 'obj1',
+  age: 18,
+  addrers: {
+    city: '北京',
+    country: '中国'
+  },
+  friends: function () {
+    console.log('friends');
+  }
+}
+
+// here we used JSON.parse and JSON.stringify
+const obj2 = JSON.parse(JSON.stringify(obj1));  
+obj2.age = 20; // level 1 check
+obj2.addrers.city = "istanbul"; // level 2 check
+
+/*problem in Deep copy
+/-> in the obj1 we are having a key -> friends where value is a function.
+/-> so the function is not copied from obj1 to obj2.
+*/
+
+console.log(obj1,"obj1"); //original object
+console.log(obj2,"obj2"); //copied object
