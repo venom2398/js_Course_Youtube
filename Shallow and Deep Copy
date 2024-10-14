@@ -1,3 +1,18 @@
+-----------
+Shallow Copy:-
+
+Creates a new object that shares the same references to the properties of the original object.
+If a property is a primitive value (like a number, string, or boolean), the copy will have its own independent value.
+If a property is an object or array, both the original and the copy will refer to the same object or array in memory.
+Changes made to a property in the original object will also be reflected in the copy, and vice versa.
+----------
+Deep Copy:-
+
+Creates a new object that has its own independent copies of all properties, including nested objects and arrays.
+If a property is a primitive value, the copy will have its own independent value.
+If a property is an object or array, a new object or array will be created for the copy, and its properties will be copied recursively.
+Changes made to a property in the original object will not affect the copy, and vice versa.
+----------
 const obj1 = {
   name: 'obj1',
   age: 18,
