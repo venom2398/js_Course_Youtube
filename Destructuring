@@ -1,0 +1,17 @@
+Destructuring is a powerful syntax in JavaScript that allows you to unpack values from arrays or objects into individual variables in a concise and readable manner. 
+It simplifies the process of extracting data from complex data structures, making your code more expressive and easier to understand.
+
+1) Destructuring Object
+const a = {
+  name:"basava",
+  age:23
+}
+const {name} = a;
+console.log(name) 
+---------------
+2) Destructuring array
+const arr = [20,30,40];
+
+const [a1,b1,c1] = arr;
+
+console.log(a1,b1,c1)
