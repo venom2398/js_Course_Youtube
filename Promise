@@ -1,0 +1,36 @@
+A Promise in JavaScript is an object that represents the eventual completion (or failure) of an asynchronous operation. It provides a mechanism to handle asynchronous code in a more structured and manageable way compared to traditional callbacks.   
+
+Key Characteristics:
+
+Asynchronous: Promises represent operations that may not complete immediately.
+State: A Promise can be in one of three states:
+Pending: The initial state before the operation completes.
+Fulfilled: The operation completed successfully.
+Rejected: The operation failed.
+Value: If a Promise is fulfilled, it holds a value. If it's rejected, it holds an error.
+Thenable: Promises are thenable, meaning they have a then method that allows you to attach callbacks to handle both fulfillment and rejection.
+
+// Define a function named fetchData
+const fetchData = () => {
+  // Declare a constant variable success and set it to false
+  const success = false;
+  
+  // Return a new Promise object
+  return new Promise((resolve, reject) => {
+    // Check if success is true
+    if (success) {
+      // If true, resolve the promise with the string "Resolved"
+      resolve("Resolved");
+    } else {
+      // If false, reject the promise with the string "Error: Rejected"
+      reject("Error: Rejected");
+    }
+  });
+};
+
+// Call the fetchData function and handle the returned promise
+fetchData()
+  // If the promise is resolved, log the resolved value to the console
+  .then(data => console.log(data))
+  // If the promise is rejected, log the error message to the console
+  .catch(err => console.log(err));
