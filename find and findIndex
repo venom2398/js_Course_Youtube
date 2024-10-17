@@ -1,4 +1,4 @@
-find: -
+find: - it will return the first element of array that passes the condition.
 
 const arrObj = [
 	{name:"basva", age:23},
@@ -12,7 +12,7 @@ const res = arrObj.find((items)=>{
 
 console.log(res.name);
 
-findIndex: -
+findIndex: - it will return the first index of the element which passes the condition for the array.
 
 const arrObj = [
 	{name:"basva", age:23},
