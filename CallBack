@@ -1,0 +1,37 @@
+A callback function is a function that is passed as an argument to another function and is executed after some operation has been completed.
+
+1) used when we are doing async operations.
+// Define a function named fetchData that takes a URL and a callback function as parameters
+const fetchData = (url, callback) => {
+  try {
+    // Attempt to fetch data from the provided URL
+    fetch(url)
+      // Convert the response to JSON format
+      .then(res => res.json())
+      // Pass the JSON data to the callback function
+      .then(data => callback(data));
+  } catch (err) {
+    // Log any errors that occur during the fetch process
+    console.log(err);
+  }
+};
+
+// Call the fetchData function with a URL and a callback function
+fetchData("https://jsonplaceholder.typicode.com/posts", (data) => {
+  // Log the fetched data to the console
+  console.log(data);
+});
+
+2) During the Event Handling: -trigger a specific action when a user clicks a button.
+html: -
+<div>
+  <button id="click">
+    Click
+  </button>
+</div>
+-------------
+javaScript:-
+document.getElementById("click").addEventListener("click",()=>{
+	console.log("Clicked")
+})
+------------
