@@ -1,0 +1,63 @@
+Map is a collection of keyed data items, just like an Object. But the main difference is that Map allows keys of any type.
+
+Example: -
+
+let map = new Map();
+
+//map.set(key, value) – stores the value by the key.
+map.set('name', 'str1');   // a string key
+map.set(1, 'num1');     // a numeric key
+map.set(true, 'bool1'); // a boolean key
+
+//map.get(key) – returns the value by the key, undefined if key doesn’t exist in map.
+const getMap = map.get("name");
+console.log(getMap); // "str1"
+
+//map.has(key) – returns true if the key exists, false otherwise.
+const hasMap = map.has(1);
+console.log(hasMap) // true
+
+//map.size – returns the current element count.
+const sizeMap = map.size;
+console.log(sizeMap) // 3
+
+//map.delete(key) – removes the element (the key/value pair) by the key.
+const deleteMap = map.delete('name');
+
+//map.clear() – removes everything from the map.
+const clearMap = map.clear();
+
+for (let a of map){
+	console.log(a)
+  /*
+  	["name", "str1"]
+		[1, "num1"]
+		[true, "bool1"]
+  */
+}
+-------------
+A Set is a special type collection – “set of values” (without keys), where each value may occur only once.
+
+//new Set([iterable]) – creates the set, and if an iterable object is provided (usually an array), copies values from it into the set.
+const set = new Set([1,2,3,4,5]);
+
+//set.add(value) – adds a value, returns the set itself.
+const addSet = set.add(6)
+
+//set.size – is the elements count.
+const sizeSet = set.size;
+console.log(sizeSet) //6
+
+//set.has(value) – returns true if the value exists in the set, otherwise false.
+const hasSet = set.has(2);
+console.log(hasSet) //true
+
+//set.delete(value) – removes the value, returns true if value existed at the moment of the call, otherwise false.
+const deleteSet = set.delete(3);
+
+//set.clear() – removes everything from the set.
+const clearSet = set.clear();
+
+for(let a of set){
+	console.log(a)
+}
