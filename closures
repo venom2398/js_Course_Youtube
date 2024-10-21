@@ -1,0 +1,12 @@
+A closure in JavaScript is a feature where an inner function has access to the outer (enclosing) function’s variables, even after the outer function has finished executing.
+
+const baker = () =>{
+	const price = 50
+  function assistant(qun){
+  	return `Total: ${price*qun}`
+  }
+  return assistant;
+}
+
+const myProduct = baker();
+console.log(myProduct(4));
