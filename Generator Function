@@ -1,0 +1,23 @@
+A generator function in JavaScript is a special kind of function that can be paused and resumed, which allows it to yield multiple values over time. 
+It is defined using the function* syntax and makes use of the yield keyword to pause and resume the execution of the function.
+
+Example:-
+
+function* cookieBaking() {
+    yield 'Mixing ingredients';
+    yield 'Rolling dough';
+    yield 'Cutting shapes';
+    yield 'Baking in the oven';
+    yield 'Cooling cookies';
+    return 'Cookies are ready!';
+}
+
+const bake = cookieBaking();
+
+console.log(bake.next().value); // Mixing ingredients
+console.log(bake.next().value); // Rolling dough
+console.log(bake.next().value); // Cutting shapes
+console.log(bake.next().value); // Baking in the oven
+console.log(bake.next().value); // Cooling cookies
+console.log(bake.next().value); // Cookies are ready!
+console.log(bake.next().done); // true
