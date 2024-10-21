@@ -1,0 +1,19 @@
+HOC:- 	1) The function which takes the one or more functions as an argument.
+		    2) The function which return the function as it's result.
+
+const coffee=()=>{
+	return "coffee";
+}
+
+const withMilk=(func)=>{
+	const callfunc = func();
+  return `${callfunc} with Milk`
+}
+
+const withSugar=(func)=>{
+	const callfunc = func();
+  return `${callfunc} and Sugar`
+}
+
+const myCoffee = withSugar(()=>withMilk(coffee));
+console.log(myCoffee)
