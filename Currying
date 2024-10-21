@@ -1,6 +1,17 @@
 Currying in JavaScript is a technique where a function with multiple arguments is transformed into a series of nested functions, each taking a single argument. 
 This means that instead of calling a function with all its arguments at once, you call it with one argument at a time, each returning a new function that takes the next argument.
 
+1) normal technique:-
+
+const cart=(price,quntity, discount)=>{
+    	return (price * quntity) - discount;
+}
+
+const myProducts = cart(500,5,1000);
+console.log(myProducts)
+------------------
+2) currying technique:-
+
 const cart=(price)=>{
 	return (quntity)=>{
   	return (discount) =>{
