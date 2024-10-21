@@ -1,0 +1,55 @@
+Event bubbling: This is an Event Propagation where the event first triggers on the innermost target element,
+and then goes on to the ancestors of that target element till it reached outermost DOM element.
+
+html: -
+<div id="step1">
+  <div id="step2">
+    <div id="step3">
+      <button id="click">Click Me</button>
+    </div>
+  </div>
+</div>
+
+JS:-
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("step1").addEventListener("click", () => {
+    console.log("Step1")
+  })
+  document.getElementById("step2").addEventListener("click", () => {
+    console.log("Step2")
+  })
+  document.getElementById("step3").addEventListener("click", () => {
+    console.log("Step3")
+  })
+  document.getElementById("click").addEventListener("click", () => {
+    console.log("clicked")
+  })
+})
+----------
+Event Capturing: This is an Event Propagation where the event will first occurs or captured at the outermost DOM element,
+and then it goes on to it's descendants of target element till the innermost DOM element.
+ 
+html: -
+<div id="step1">
+  <div id="step2">
+    <div id="step3">
+      <button id="click">Click Me</button>
+    </div>
+  </div>
+</div>
+
+js:-
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("step1").addEventListener("click", () => {
+    console.log("Step1")
+  },true)
+  document.getElementById("step2").addEventListener("click", () => {
+    console.log("Step2")
+  },true)
+  document.getElementById("step3").addEventListener("click", () => {
+    console.log("Step3")
+  },true)
+  document.getElementById("click").addEventListener("click", () => {
+    console.log("clicked")
+  },true)
+})
