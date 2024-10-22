@@ -1,0 +1,37 @@
+/* Print the even numbers from array and remove duplicates from it. */
+
+const arr = [1, 2, 3, 4, 2, 4, 5, 1, 2, 4, 3, 7, 8];
+
+const findEvennumber=(evenNum)=>{
+  let numb = []; 
+  for(let a=0;a<evenNum.length;a++){
+    if(evenNum[a]%2===0 && !numb.includes(evenNum[a])){
+      numb.push(evenNum[a]);
+    }
+  } 
+  return numb;
+}
+const sol = findEvennumber(arr);
+console.log(sol);
+
+--------------------------------------------------------
+/* check where the string is palindrome or not */
+// const str = "basavakiran";
+const str = "racecar";
+
+function palindromeFunc(string){
+  let len = string.length;
+  for (let i = 0; i < len / 2; i++) {
+    if (str[i] !== str[len - 1 - i]) {
+      return "It's not Palindrome"
+    } else{
+      return "It's Palindrome"
+    }
+  }
+}
+
+const sol = palindromeFunc(str)
+console.log(sol);
+--------------------------------------------------------
+
+
