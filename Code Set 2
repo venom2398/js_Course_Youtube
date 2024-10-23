@@ -1,4 +1,4 @@
-/* Print the even numbers from array and remove duplicates from it. */
+1) /* Print the even numbers from array and remove duplicates from it. */
 
 const arr = [1, 2, 3, 4, 2, 4, 5, 1, 2, 4, 3, 7, 8];
 
@@ -15,7 +15,7 @@ const sol = findEvennumber(arr);
 console.log(sol);
 
 --------------------------------------------------------
-/* check where the string is palindrome or not */
+2) /* check where the string is palindrome or not */
 // const str = "basavakiran";
 const str = "racecar";
 
@@ -33,5 +33,186 @@ function palindromeFunc(string){
 const sol = palindromeFunc(str)
 console.log(sol);
 --------------------------------------------------------
+3) /* Give the factorial of number*/
+const number = 4;
 
+function factorialNumber(factNum){
+  if(factNum == 0 || factNum == 1){
+    return 1;
+  }else{
+    const res = factNum * factorialNumber(factNum - 1)
+    return res;
+  }
+}
 
+const sol = factorialNumber(number);
+console.log(sol);
+--------------------------------------------------------
+4) /* Give the longest word in the sentence */
+const sentence = "hello there from lighthouse labs";
+
+function longestWord(sentence) {
+  let longestWord = ""; // Use `let` for mutability
+  const arrOfWords = sentence.split(" ");
+
+  for (const word of arrOfWords) { // Use `for...of` loop for cleaner iteration
+    if (word.length > longestWord.length) {
+      longestWord = word;
+    }
+  }
+
+  return longestWord;
+}
+
+const sol = longestWord(sentence);
+console.log(sol); // Output: "lighthouse"
+--------
+/-> another way
+const sentance = "Hi my name is Kishan";
+
+const words = sentance.split(" ");
+
+const longestWord = words.reduce((longest, word) => {
+  return word.length > longest.length ? word : longest;
+}, "");
+
+console.log(longestWord);
+---------------------------------------------------------
+5) /* Give the biggest number in array */
+const arr1 = [1,200,3,4,5,6,-40,99,103,3];
+
+function bigNum(num){
+  let bigNum = num[0];
+  for(let n of num){
+    if(n > bigNum){
+      bigNum = n;
+    }
+  }
+  return bigNum;
+}
+
+const sol = bigNum(arr1);
+console.log(sol)
+--------
+/-> another way
+const arr1 = [1,200,3,4,5,6,-40,99,103,3];
+
+function bigNum(num){
+  const bigNum = Math.max(...num);
+  return bigNum;
+}
+
+const sol = bigNum(arr1);
+console.log(sol)
+--------
+/-> Another Way
+const arr1 = [1,200,304,4,5,6,-40,99,103,3];
+
+function bigNum(num){
+  const bigNum = num.reduce((acc,curr)=>{
+    return curr > acc ? curr : acc
+  },0)
+  return bigNum;
+}
+
+const sol = bigNum(arr1);
+console.log(sol)
+
+---------------------------------------------------------
+6) //checking weather the number is prime number or not
+const num = 11;
+
+function primeNum(num){
+  if(num<=1) return false;
+  for(let i=2;i<Math.sqrt(num);i++){
+    if(num%i===0){
+      return false;
+    }
+  }
+  return true;
+}
+
+const sol = primeNum(num);
+console.log(sol === true ? "Prime":"Not Prime");
+---------------------------------------------------------
+7) Reverse the given sentance 
+function reverseString(string) {
+  let reverseString = "";
+  for (let i = string.length - 1; i >= 0; i--) {
+    reverseString += string[i];
+  }
+  return reverseString;
+}
+
+console.log(reverseString("Hi this is basavakiran"))
+---------------------------------------------------------
+8) find the smallest word in the sentance
+const sentance = "hi this is basavakiran";
+const words = sentance.split(" ");
+
+function shortestWord(words){
+  let shortWord = words[0];
+  for(let w of words){
+    if(w.length<shortWord.length){
+      shortWord = w
+    }
+  }
+  return shortWord;
+}
+
+console.log(shortestWord(words));
+---------------
+//-> another way
+const sentance = "hi this is basavakiran";
+const words = sentance.split(" ");
+
+function shortestWord(words){
+  let shortWord = words[0];
+  for (let i = 1; i < words.length; i++) {
+    if (words[i].length < shortestWord.length) {
+      shortestWord = words[i];
+    }
+  }
+  return shortWord;
+}
+
+console.log(shortestWord(words));
+
+------------------------------------------------
+9) function sumOfThirds(arr), which takes an array arr as an argument. This function should return a sum
+of every third number in the array, starting from the first one.
+
+const numArr = [1, 23, 32, 4, 51, 6, 33, 71, 83, 9, 10];
+const sumOfThirds = (arr) => {
+  let sum = 0;
+  for (let i = 0; i <= arr.length; i += 3) {
+    sum += arr[i]
+  }
+  return sum;
+}
+console.log(sumOfThirds(numArr));
+
+------------------------------------------------
+10) write a program for fibonacci series of numbers
+function fibonacciSeries(n) {
+  let fib = [0, 1];
+  for (let i = 2; i < n; i++) {
+      fib[i] = fib[i - 1] + fib[i - 2];
+  }
+  return fib;
+}
+
+// Example usage:
+const numTerms = 10;
+console.log(fibonacciSeries(numTerms)); // Output: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+/-> another way
+function fibonacciSeries(numTerms) {
+  let series = [0,1];
+  for(let i=2;i<numTerms;i++){
+    const ser = series[i-1] + series[i-2]
+    series.push(ser);
+  }
+  return series;
+}
+console.log(fibonacciSeries(10))
+------------------------------------------------
