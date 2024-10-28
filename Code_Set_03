@@ -1,0 +1,98 @@
+/*Find the max count of consecutive 1’s in an array */
+
+function consecutiveNums(nums) {
+  let maxCount = 0;
+  let consNum = 0;
+  for (let i = 0; i < nums.length - 1; i++) {
+    if (nums[i] === 1) {
+      consNum = consNum + 1;
+      maxCount = Math.max(consNum, maxCount);
+    } else {
+      consNum = 0;
+    }
+  }
+  return maxCount;
+}
+
+console.log(consecutiveNums([1, 1, 9, 1, 9, 9, 19, 7, 1, 1, 1, 3, 2, 5]));
+
+/****************************************************/
+
+Given 2 arrays that are sorted [0,3,4,31] and [4,6,30].
+Merge them and sort [0,3,4,4,6,30,31]
+
+const arr1=[1,3,4,7,5];
+const arr2=[13,21,45,66,2,8,6];
+
+const mergedArray = [];
+
+for (let i=0; i<arr1.length; i++) {
+  mergedArray.push(arr1[i]);
+}
+for (let j=0; j<arr2.length; j++) {
+  mergedArray.push(arr2[j]);
+}
+
+for(let k=0;k<mergedArray.length;k++){
+  for(let l=k+1;l<mergedArray.length;l++){
+    if(mergedArray[k]>mergedArray[l]){
+      let temp = mergedArray[k];
+      mergedArray[k] = mergedArray[l]
+      mergedArray[l] = temp;
+    }
+  }
+}
+
+console.log(mergedArray);
+/-> another way
+const arr1=[1,3,4,7,5];
+const arr2=[13,21,45,66,2,8,6];
+
+const sol = arr1.concat(arr2).sort((a,b)=>a-b)
+
+console.log(sol);
+
+/****************************************************/
+Write logic to get unique objects from below array
+
+function getUniqueArr(array) {
+  const uniqueArr = []
+  const seen = {}
+  for (let i = 0; i <= array.length - 1; i++) {
+    const currentItem = array[i].name
+    if (!seen[currentItem]) {
+      uniqueArr.push(array[i])
+      seen[currentItem] = true
+    }
+  }
+  return uniqueArr
+}
+let arr = [
+  { name: "sai" },
+  { name: "Nang" },
+  { name: "sai" },
+  { name: "Nang" },
+  { name: "111111" },
+]
+console.log(getUniqueArr(arr))
+
+/****************************************************/
+
+Given a string, write a javascript function to count the
+occurrences of each character in the string.
+
+function countCharacters(str) {
+  const charCount = {}; 
+  const len = str.length;
+
+  for (let i = 0; i < len; i++) {
+    const char = str[i];
+    charCount[char] = (charCount[char] || 0) + 1;
+  }
+  return charCount;
+}
+
+const result = countCharacters("helaalo");
+console.log(result); 
+
+/****************************************************/
