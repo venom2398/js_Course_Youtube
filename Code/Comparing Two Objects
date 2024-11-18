@@ -1,0 +1,48 @@
+
+ function deepCompare(obj1, obj2) {
+  if (obj1 === obj2) return true // Same reference or primitive values
+
+  if (
+    typeof obj1 !== "object" ||
+    typeof obj2 !== "object" ||
+    obj1 === null ||
+    obj2 === null
+  ) {
+    return false // If not both objects or one is null, they're not equal
+  }
+
+  const keys1 = Object.keys(obj1)
+  const keys2 = Object.keys(obj2)
+
+  if (keys1.length !== keys2.length) return false // Different number of keys
+
+  for (const key of keys1) {
+    const val1 = obj1[key]
+    const val2 = obj2[key]
+
+    if (typeof val1 === "function" && typeof val2 === "function") {
+      if (val1.toString() !== val2.toString()) return false // Compare functions by their code
+    } else if (!deepCompare(val1, val2)) {
+      return false // Recursively compare other values
+    }
+  }
+
+  return true
+} 
+
+const obj1 = {
+  name: "John",
+  age: 30,
+  detail: function () {
+    console.log("hey")
+  },
+}
+const obj2 = {
+  name: "John",
+  age: 30,
+  detail: function () {
+    console.log("hey")
+  },
+}
+
+console.log(deepCompare(obj1, obj2)) // true
