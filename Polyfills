@@ -1,0 +1,14 @@
+A polyfill is a piece of code (usually JavaScript) used to provide modern functionality on older browsers that do not natively support it.
+
+example:-
+let data = ["basava", "kirna"];
+
+data.forEach((item, index)=>{
+	console.log(item,index)
+})
+
+Array.prototype.forEach((cb)=>{
+	for(let i=0;i<this.length;i++){
+  	cb(this[i],i)
+  }
+})
