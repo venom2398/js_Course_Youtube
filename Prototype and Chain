@@ -49,3 +49,45 @@ console.log(dog.eats);         // true (found on animal)
 dog.walk();                    // "Animal walks" (found on animal)
 console.log(dog.toString());   // [object Object] (found on Object.prototype)
 
+/*******************************************/
+
+Example : -
+/* By default, all objects in JavaScript inherit from Object.prototype. */
+
+/* Below, we are creating a constructor function called Details. */
+function Details(name) {
+  this.name = name;
+  /* If we define the getDetail function directly inside the constructor (as shown in the commented code below), 
+     each instance will get its own copy of the function. This leads to higher memory usage since each function 
+     occupies separate memory. It can cause inefficiency in large-scale applications. */
+
+  // this.getDetail = function getData() {
+  //   return `The name is ${this.name}`;
+  // };
+}
+
+/* By using the prototype property of the Details constructor, 
+   we define the getDetail function once, and it is shared among all instances of Details. */
+Details.prototype.getDetail = function getData() {
+  return `The name is ${this.name}`;
+};
+
+/* Below, we are creating two instances of the Details constructor. */
+const person1 = new Details("Kiran");
+const person2 = new Details("Basava");
+
+console.log(person1.getDetail()); // Output: "The name is Kiran"
+console.log(person2.getDetail()); // Output: "The name is Basava"
+console.log(person1); // Output: Details { name: 'Kiran' }
+console.log(person2); // Output: Details { name: 'Basava' }
+
+/* The prototype of the Details constructor contains the getDetail function. 
+   Both person1 and person2 share the same prototype. */
+console.log(Details.prototype); // Output: { getDetail: [Function: getData] }
+console.log(person1.__proto__); // Output: { getDetail: [Function: getData] }
+console.log(person2.__proto__); // Output: { getDetail: [Function: getData] }
+
+/* Since person1 and person2 share the same prototype, their __proto__ references are equal. */
+console.log(person1.__proto__ === person2.__proto__); // Output: true
+
+
