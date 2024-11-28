@@ -1,0 +1,51 @@
+**Prototype**: -Every JavaScript function has a property called prototype and when function it's used as a constructor if we want to add properties and methods at later stage to a function which can be
+accessible across all the instances.
+
+example: -
+
+function Hotel(tea, coffee){
+	this.tea = tea;
+  this.coffee = coffee;
+}
+
+Hotel.prototype.details = function(){
+  return `The hotel Beverage Price is ${this.coffee} & ${this.tea}`;
+}
+
+const person1 = new Hotel(10,20);
+console.log(person1.details());
+
+/********************************************/
+
+The prototype chain in JavaScript is a mechanism that allows objects to inherit properties and methods from other objects. 
+Each object has an internal link (known as [[Prototype]]) pointing to its prototype object. 
+If a property or method is not found directly on the object, JavaScript will look up the chain to see if it exists in the object's prototype. 
+This continues up the chain until either the property is found or the end of the chain (where the prototype is null) is reached.
+
+example: -
+
+// Base object
+const animal = {
+  eats: true,
+  walk: function () {
+    console.log('Animal walks');
+  }
+};
+
+// Object inheriting from animal
+const mammal = Object.create(animal);
+mammal.hasFur = true;
+
+// Object inheriting from mammal
+const dog = Object.create(mammal);
+dog.bark = function () {
+  console.log('Woof!');
+};
+
+// Accessing properties/methods through the prototype chain
+dog.bark();                    // "Woof!" (found on dog)
+console.log(dog.hasFur);       // true (found on mammal)
+console.log(dog.eats);         // true (found on animal)
+dog.walk();                    // "Animal walks" (found on animal)
+console.log(dog.toString());   // [object Object] (found on Object.prototype)
+
