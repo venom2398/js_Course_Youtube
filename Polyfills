@@ -12,3 +12,22 @@ Array.prototype.forEach((cb)=>{
   	cb(this[i],i)
   }
 })
+
+example: - Map Polyfill
+
+Array.prototype.map1 = function(callback,thisArgs){
+  let temp = [];
+  for(let i=0;i<this.length;i++){
+    if(this.hasOwnProperty(i)){
+      temp.push(callback.call(thisArgs, this[i], this, i))
+    }
+  }
+  return temp
+}
+usage: -
+const array = [1,2,3,4,5];
+const mutiplyByTwo = array.map1((item, index)=>{
+  return item * 2;
+})
+
+console.log(mutiplyByTwo)
