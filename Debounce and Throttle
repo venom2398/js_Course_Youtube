@@ -28,22 +28,19 @@ This is useful for events that can fire continuously, like scrolling or resizing
 
 example: - Throttle
 
-function thrott(func, limit) {
-  let lastCall = 0
-  const data = (...args) => {
-    const now = Data.now()
-    if (now - lastCall >= limit) {
-      lastCall = now
-      func.apply(this, args)
+function throttle(func, delay) {
+  let lastTime = 0;
+  return function () {
+    const now = Date.now();
+    if (now - lastTime >= delay) {
+      lastTime = now;
+      func.apply(this, arguments);
     }
-  }
-  return data
+  };
 }
 
-window.addEventListener(
-  "scroll",
-  thrott(() => {
-    console.log("scrolled")
-  }, 2000),
-)
+// Example usage:
+window.addEventListener('resize', throttle(function () {
+  console.log('Scrolled!');
+}, 200));
 
