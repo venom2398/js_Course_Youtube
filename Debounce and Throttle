@@ -28,19 +28,27 @@ This is useful for events that can fire continuously, like scrolling or resizing
 
 example: - Throttle
 
-function throttle(func, delay) {
-  let lastTime = 0;
-  return function () {
-    const now = Date.now();
-    if (now - lastTime >= delay) {
-      lastTime = now;
-      func.apply(this, arguments);
-    }
-  };
+//html:
+
+<button onClick="sendEmail()">Click</button>
+/* ---- */
+
+// js:
+
+var count = 0
+
+let apiCalled
+const trottle = (func, time) => {
+  if (apiCalled) return
+  apiCalled = true
+  setTimeout(() => {
+    func()
+    apiCalled = false
+  }, time)
 }
 
-// Example usage:
-window.addEventListener('resize', throttle(function () {
-  console.log('Scrolled!');
-}, 200));
-
+const sendEmail = () => {
+  trottle(() => {
+    console.log("Sending Email:", count++)
+  }, 500)
+}
