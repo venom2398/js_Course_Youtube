@@ -4,22 +4,28 @@ This is particularly useful for events that can fire multiple times in quick suc
 The function will only execute after the specified delay period has elapsed without any new events.
 
 example:- Debounce
-function debounc(func, delay){
-	let timer;
-  const data = (...args) =>{
-  	clearInterval(timer);
-    timer = setTimeout(()=>{
-    	func.apply(this, args)
-    }, delay)
-  }
-  
-  return data;
+//html:
+<input  
+  id="inpbox"
+  type="text"
+  onkeyup="getSuggestion()"
+/>
+/* ---- */
+
+// js:
+let inp = document.getElementById("inpbox");
+
+let timer;
+const debounce=(func, time)=>{
+	if(timer) clearInterval(timer);
+  timer = setTimeout(func,time)
 }
 
-window.addEventListener("resize",debounc(()=>{
-	console.log("resized")
-},2000))
-
+const getSuggestion = () =>{
+	debounce(()=>{
+  	console.log(inp.value)
+  },2000)
+}
 ---------------------
 
 **Throttle** is a technique that ensures a function is called at most once in a specified period.
